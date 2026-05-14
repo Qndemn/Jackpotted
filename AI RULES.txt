@@ -5,3 +5,16 @@ Section one: Standard RR Logic
 2. If the last two (or more, depending on character personality) shots were blank, it may be that the next is live. This would be annoying to add tho :P
 3. Character personality should directly impact decisionmaking, including how often they shoot themselves vs you.
 4. NO DECISIONS SHOULD EVER BE COMPLETELY RANDOM, except for training dummies.
+
+Section two: Abilities
+Abilities are divided into FOUR GROUPS:
+1. Chamber Manipulation, directly manipulating the number of specific shells or just all shells.
+2. Damage Manipulation, influencing damage dealt and damage taken.
+3. Turn Manipulation, influencing how many turns you get or the enemy loses.
+4. Unique: Like Sinclair's Vendetta abilities, these are abilities that do not fall into any above categories. Cracking shells does not count as unique, this is just chamber manipulation.
+
+Subection one: Cooldowns
+1. Ticking vs Live vs Blank Cooldowns:
+Ticking cooldowns are cooldowns that, when the ability is used, are set to a number then ticked down every turn.
+Live cooldowns are reset upon shooting the enemy.
+Blank cooldowns are reset upon shooting oneself with a blank, excluding forced self shots when shooting opponents.
