@@ -1,0 +1,7 @@
+-----===== Turn Logic =====-----
+
+Section one: Standard RR Logic
+1. The first (often four) turns are likely to be blank (this can be changed to less or more depending on number of shells:lives)
+2. If the last two (or more, depending on character personality) shots were blank, it may be that the next is live. This would be annoying to add tho :P
+3. Character personality should directly impact decisionmaking, including how often they shoot themselves vs you.
+4. NO DECISIONS SHOULD EVER BE COMPLETELY RANDOM, except for training dummies.
