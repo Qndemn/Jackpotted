@@ -22,9 +22,9 @@ def bb_test_fight():
     input("(enter to continue) ")
     time.sleep(1)
 
-    rounds = 0
     ehp = 3
     hp = 3
+    turns = 0
 
     shells = 12
     lives = 2
@@ -37,13 +37,12 @@ def bb_test_fight():
     rage_shot = False
 
     while hp > 0 and ehp > 0:
-        rounds += 1
-
+        turns += 1
         # --- DRAW SHELL ---
         current_shell = chamber.pop(0)
         shells -= 1
 
-        print(f"-==== ROUND {rounds} ====-")
+        print(f"-==== ROUND {turns} ====-")
         time.sleep(0.25)
 
         print("\n- YOUR STATS -")
@@ -257,5 +256,3 @@ def bb_test_fight():
 
         if shells <= 0:
             reload()
-
-bb_test_fight()

@@ -21,7 +21,7 @@ def ishedoki_test_fight():
     print("「この果てなき歌に、また一つ音が加わる！」終わりなき旋律に新たな響きが重なるように、我らはかつて共に歩み、この地を離れる未来すらあったかもしれない。だが無情にも運命は我らを再びここへ導いたのだ――さあ、兄弟よ、姉妹よ、最後にもう一度、我と共に踊ろうではないか")
     input("(enter to continue) ")
     time.sleep(1)
-    rounds = 0
+    turns = 0
     ehp = 3 + rounds
     hp = 3 + rounds
     shells = 36
@@ -35,11 +35,11 @@ def ishedoki_test_fight():
     ecooldown1 = 0
     ecooldown2 = 0
     while hp > 0 and ehp > 0:
-        rounds += 1
+        turns += 1
         # --- DRAW SHELL ---
         current_shell = chamber.pop(0)
         shells -= 1
-        print(f"-==== ROUND {rounds} ====-")
+        print(f"-==== ROUND {turns} ====-")
         time.sleep(0.25)
         print("\n- YOUR STATS -")
         print(f"Hp: {hp}")
@@ -260,4 +260,3 @@ def ishedoki_test_fight():
           ecooldown2 -= 1
         if shells <= 0:
           reload()
-ishedoki_test_fight()
