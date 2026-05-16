@@ -3,18 +3,19 @@ import sys
 import random
 
 money = 0
+rounds = 0
 
-def reload():
-    global shells, lives, blanks, chamber
+def reload_chamber(max_shells, max_lives):
     print("RELOADING...")
     time.sleep(1.5)
-    shells = 12
-    lives = 2
+    shells = max_shells
+    lives = max_lives
     blanks = shells - lives
     chamber = ["live"] * lives + ["blank"] * blanks
     random.shuffle(chamber)
     print(f"Lives: {lives}")
     time.sleep(1.5)
+    return shells, lives, blanks, chamber
 
 def bb_test_fight():
     global hp, rounds
@@ -22,8 +23,8 @@ def bb_test_fight():
     input("(enter to continue) ")
     time.sleep(1)
 
-    ehp = 3
-    hp = 3
+    ehp = 3 + rounds
+    hp = 3 + rounds
     turns = 0
 
     shells = 12
@@ -38,7 +39,12 @@ def bb_test_fight():
 
     while hp > 0 and ehp > 0:
         turns += 1
+
         # --- DRAW SHELL ---
+        if not chamber:
+            shells, lives, blanks, chamber = reload_chamber(12, 2)
+        if not chamber:
+            continue
         current_shell = chamber.pop(0)
         shells -= 1
 
@@ -93,9 +99,10 @@ def bb_test_fight():
 
             # Forced self-shot
             if not chamber:
-                reload()
-
-            if ehp > 0 and len(chamber) > 0:
+                shells, lives, blanks, chamber = reload_chamber(12, 2)
+            if not chamber:
+              continue
+            if ehp > 0 and chamber:
                 input("Your turn (enter) ")
                 print(); time.sleep(0.5); print(); time.sleep(0.5)
 
@@ -122,14 +129,13 @@ def bb_test_fight():
             print(f"Ejecting current shell... ({current_shell})")
             time.sleep(1)
 
-            # Remove ejected shell from counters
             if current_shell == "live":
                 lives -= 1
             else:
                 blanks -= 1
 
             # Flip next shell
-            if len(chamber) > 0 and random.random() > 0.5:
+            if chamber and random.random() > 0.5:
                 if chamber[0] == "blank":
                     chamber[0] = "live"
                     lives += 1
@@ -155,12 +161,13 @@ def bb_test_fight():
         print("-==== ENEMY TURN ====-")
 
         if not chamber:
-            reload()
-
+            shells, lives, blanks, chamber = reload_chamber(12, 2)
+        if not chamber:
+            continue
         current_shell = chamber.pop(0)
         shells -= 1
 
-        # --- BB AI (unchanged) ---
+        # --- BB AI ---
         if shells >= 10:
             bb_choice = "self"
         else:
@@ -214,9 +221,10 @@ def bb_test_fight():
 
             # Forced self-shot
             if not chamber:
-                reload()
-
-            if hp > 0 and len(chamber) > 0:
+                shells, lives, blanks, chamber = reload_chamber(12, 2)
+            if not chamber:
+              continue
+            if hp > 0 and chamber:
                 current_shell = chamber.pop(0)
                 shells -= 1
 
@@ -254,5 +262,6 @@ def bb_test_fight():
         if ecooldown > 0:
             ecooldown -= 1
 
-        if shells <= 0:
-            reload()
+        # --- RELOAD ---
+        if shells <= 0 or not chamber:
+            shells, lives, blanks, chamber = reload_chamber(12, 2)
