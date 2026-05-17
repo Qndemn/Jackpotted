@@ -3,7 +3,6 @@ import sys
 import random
 
 money = 0
-rounds = 0
 
 def reload_chamber(max_shells, max_lives):
     print("RELOADING...")
@@ -18,13 +17,13 @@ def reload_chamber(max_shells, max_lives):
     return shells, lives, blanks, chamber
 
 def bb_test_fight():
-    global hp, rounds
+    global hp
     print("Yer gon' get a taste a' hot lead, bucko! (or buckette, depending on gender. Feel the wrath of feminism! Does that sound sexist...? Uh... LET'S SHOOT EACH OTHER FOR MONEY NOW)")
     input("(enter to continue) ")
     time.sleep(1)
 
-    ehp = 3 + rounds
-    hp = 3 + rounds
+    ehp = 4
+    hp = 4
     turns = 0
 
     shells = 12
@@ -152,6 +151,10 @@ def bb_test_fight():
 
         else:
             print("INVALID")
+            hp -= 1
+            if hp == 0:
+                print("you die haha :D")
+                return "player_dead"
 
         # --- ENEMY TURN ---
         if ehp <= 0:

@@ -192,10 +192,20 @@ def doi_test_fight():
             time.sleep(1)
             print(f"Ejecting current shell... ({current_shell})")
             time.sleep(1)
+            if current_shell == "live":
+                lives -= 1
+            else:
+                blanks -= 1
             # 50/50 flip of NEXT shell
             if len(chamber) > 0:
                 if random.random() > 0.5:
                     chamber[0] = "live" if chamber[0] == "blank" else "blank"
+                    if chamber[0] == "live":
+                        lives += 1
+                        blanks -= 1
+                    else:
+                        blanks += 1
+                        lives -= 1
             print("Chamber spun.")
         elif choice == "a" and cooldown > 0:
             print("ability on cooldown")
@@ -290,10 +300,20 @@ def doi_test_fight():
             time.sleep(1)
             print("Ejecting current shell...")
             time.sleep(1)
+            if current_shell == "live":
+                lives -= 1
+            else:
+                blanks -= 1
             # 50/50 flip of NEXT shell
             if len(chamber) > 0:
                 if random.random() > 0.5:
                     chamber[0] = "live" if chamber[0] == "blank" else "blank"
+                    if chamber[0] == "live":
+                        lives += 1
+                        blanks -= 1
+                    else:
+                        blanks += 1
+                        lives -= 1
             print("Chamber spun.")
         time.sleep(1.5)
         if shells <= 0:

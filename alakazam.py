@@ -3,11 +3,9 @@ import random
 import sys
 import bb
 import ishedoki
-
-rounds = 0
+import habidachi
 
 def lycheesHell():
-    global rounds
     print("Welcome to Jackpotted! If you want to play endless mode, go play endless mode and stop wasting my damn time :D")
     input("Press Enter to continue... ")
     print("\n???: What's this...?")
@@ -19,7 +17,6 @@ def lycheesHell():
     print("\n???: BB Gunderson!")
     input("\n(R̴͖̉ ̴͙͋e̶̡͗ ̴͔͆a̴̞͗ ̶̫̕d̵̩̈́ ̴̬̂y̷̻̏...?)\n(press enter :D) ")
     time.sleep(1.5)
-    rounds = 1
     result = bb.bb_test_fight()
     if result == "player_dead":
       print("\n???: Amen. BB moves on to the next round!")
@@ -39,7 +36,6 @@ def lycheesHell():
     time.sleep(1.5)
     print("\n???: Here's Ishedoki. He's more like you. I'll enjoy seeing that rebel die.")
     input("\n(R̴͖̉ ̴͙͋e̶̡͗ ̴͔͆a̴̞͗ ̶̫̕d̵̩̈́ ̴̬̂y̷̻̏...?)\n(press enter :D) ")
-    rounds = 2
     result = ishedoki.ishedoki_test_fight()
     if result == "player_dead":
       print("\n???: Amen. Ishedoki moves on to the next round!")
@@ -54,4 +50,26 @@ def lycheesHell():
     print("\n???: You can't lose, now can you?")
     time.sleep(1.5)
     print("\n???: That's right! You may deny it, but you know you're really starting to feel... JACKPOTTED.")
+    time.sleep(1.5)
+    print("\n???: But... what's this!? Things are HEATING UP!")
+    time.sleep(1.5)
+    print("\n???: Yes, fan favorite Habidachi is poised to be your next threat. Ratings'll be high for this one.")
+    input("\n(R̴͖̉ ̴͙͋e̶̡͗ ̴͔͆a̴̞͗ ̶̫̕d̵̩̈́ ̴̬̂y̷̻̏...?)\n(press enter :D) ")
+    result = habidachi.habi_test_fight()
+    if result == "player_dead":
+      print("\n???: Amen. Habidachi moves on to the next round!")
+      time.sleep(1.5)
+      print("\n???: Don't worry, you'll feel...")
+      time.sleep(1.5)
+      print("\n???: ...JACKPOTTED eventually.")
+      time.sleep(1.5)
+      sys.exit()
+    print("\n???: ... Well, it seems our fans are shocked...! Ratings are fluctuating.")
+    time.sleep(1.5)
+    print("\n???: But one thing seems to be certain... You seem to be a new favorite. Don't let Straight Studios down.")
+    time.sleep(2.5)
+    print("\n???: You better keep our ratings high (And our overhead low).")
+    time.sleep(1.5)
+    print("\n???: ... Sorry, it's a catchy song...")
+    time.sleep(1.5)
 lycheesHell()

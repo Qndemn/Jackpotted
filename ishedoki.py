@@ -3,7 +3,6 @@ import sys
 import random
 
 money = 0
-rounds = 0
 
 def reload_chamber(max_shells, max_lives):
     print("RELOADING...")
@@ -18,14 +17,14 @@ def reload_chamber(max_shells, max_lives):
     return shells, lives, blanks, chamber
 
 def ishedoki_test_fight():
-    global hp, rounds
+    global hp
     print("「この果てなき歌に、また一つ音が加わる！」終わりなき旋律に新たな響きが重なるように、我らはかつて共に歩み、この地を離れる未来すらあったかもしれない。だが無情にも運命は我らを再びここへ導いたのだ――さあ、兄弟よ、姉妹よ、最後にもう一度、我と共に踊ろうではないか")
     input("(enter to continue) ")
     time.sleep(1)
 
     turns = 0
-    ehp = 3 + rounds
-    hp = 3 + rounds
+    ehp = 5
+    hp = 5
 
     shells = 36
     lives = 12
@@ -157,6 +156,10 @@ def ishedoki_test_fight():
 
         else:
             print("INVALID")
+            hp -= 1
+            if hp == 0:
+                print("you die haha :D")
+                return "player_dead"
 
         # --- ENEMY TURN ---
         if ehp <= 0:
