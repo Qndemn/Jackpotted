@@ -7,6 +7,7 @@ import habidachi
 
 def lycheesHell():
     print("Welcome to Jackpotted! If you want to play endless mode, go play endless mode and stop wasting my damn time :D")
+    print("Remember, this IS a boss rush. While some bosses may be easier than others on paper, that doesn't necessarily mean you'll succeed on your first try... or your second... or your third... or your sixth... or your fifteenth... the point is, keep trying! You'll feel JACKPOTTED eventually.")
     input("Press Enter to continue... ")
     print("\n???: What's this...?")
     time.sleep(1.5)
