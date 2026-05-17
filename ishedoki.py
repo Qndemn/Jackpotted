@@ -182,7 +182,7 @@ def ishedoki_test_fight():
             ishedoki_choice = "ability1"
         elif shells >= 10 and hp >= 2:
             ishedoki_choice = "enemy"
-        elif ehp == 1 and shells >= 5 and lives >= 3 and ecooldown2 == 0:
+        elif shells >= 5 and lives >= 3 and ecooldown2 == 0:
             ishedoki_choice = "ability2"
         elif ehp >= 2 and shells >= 21 and lives < 7:
             ishedoki_choice = "self"
@@ -250,7 +250,7 @@ def ishedoki_test_fight():
         elif ishedoki_choice == "ability1":
             print("They used Piano Played!")
             print("They add 5 random shells and reshuffle the chamber.\n")
-            time.sleep(2)
+            time.sleep(1)
 
             ecooldown1 = 3
             for _ in range(5):
@@ -266,30 +266,32 @@ def ishedoki_test_fight():
 
             random.shuffle(chamber)
             print("\n\n")
-            time.sleep(1.5)
 
         # --- ABILITY 2 ---
         elif ishedoki_choice == "ability2":
             print("They used Cello Strummed!")
             print("They remove 1 live shell and 3 blanks!")
-            time.sleep(2)
+            time.sleep(1)
 
             ecooldown2 = 4
 
             removed_shells = 0
             if "live" in chamber:
+                time.sleep(0.25)
                 chamber.remove("live")
+                print("CLICK")
                 lives -= 1
                 removed_shells += 1
 
             for _ in range(3):
+                time.sleep(0.25)
                 if "blank" in chamber:
                     chamber.remove("blank")
+                    print("CLACK")
                     blanks -= 1
                     removed_shells += 1
             shells -= removed_shells
             print("\n\n")
-            time.sleep(1.5)
 
         # --- COOLDOWNS ---
         time.sleep(1.5)
