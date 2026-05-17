@@ -182,6 +182,8 @@ def ishedoki_test_fight():
             ishedoki_choice = "ability1"
         elif shells >= 10 and hp >= 2:
             ishedoki_choice = "enemy"
+        elif shells >= 10 and lives <= 6:
+            ishedoki_choice = "self"
         elif shells >= 5 and lives >= 3 and ecooldown2 == 0:
             ishedoki_choice = "ability2"
         elif ehp >= 2 and shells >= 21 and lives < 7:
@@ -255,12 +257,13 @@ def ishedoki_test_fight():
             ecooldown1 = 3
             for _ in range(5):
                 time.sleep(0.25)
-                print("CLICK")
                 shell = random.choice(["live","blank"])
                 chamber.append(shell)
                 if shell == "live":
+                    print("CLICK")
                     lives += 1
                 else:
+                    print("CLACK")
                     blanks += 1
             shells += 5
 
