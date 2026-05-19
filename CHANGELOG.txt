@@ -1,3 +1,5 @@
 v.1: Dummy of Idiots build, lives in testing.py rather than main for now. I need to decide whether I'll house the rest in the script file with dynamic variables like CH or individual similar files for each boss like in Konstant!.
 
 v.2: 'BB Gunderson' boss added, characterized by aggresive playstyle except for the first four bullets, where he'll shoot himself (see: standard RR Logic, for the 'AI RULES' txt file which will soon be added as a guidebook). Also has the 'Rage Shot' ability, allowing him to deal double damage on the next turn and has a 3-turn tick cooldown. (see: tick cooldown vs live cooldown in AI RULES in the upcoming txt file)
+
+v.3: First trilogy of bosses added. Next, more player abilities.
