@@ -182,7 +182,7 @@ def ishedoki_test_fight():
             ishedoki_choice = "ability1"
         elif shells >= 10 and hp >= 2:
             ishedoki_choice = "enemy"
-        elif shells >= 10 and lives <= 6:
+        elif shells >= 10 and lives < 8:
             ishedoki_choice = "self"
         elif shells >= 5 and lives >= 3 and ecooldown2 == 0:
             ishedoki_choice = "ability2"

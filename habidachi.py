@@ -27,7 +27,7 @@ def habi_test_fight():
     turns = 0
 
     shells = 24
-    lives = 3
+    lives = 6
     blanks = shells - lives
     chamber = ["live"] * lives + ["blank"] * blanks
     random.shuffle(chamber)
@@ -45,7 +45,7 @@ def habi_test_fight():
 
             # --- DRAW SHELL ---
             if not chamber:
-                shells, lives, blanks, chamber = reload_chamber(24, 3)
+                shells, lives, blanks, chamber = reload_chamber(24, 6)
             if not chamber:
                 continue
             current_shell = chamber.pop(0)
@@ -101,7 +101,7 @@ def habi_test_fight():
 
                 # Forced self-shot
                 if not chamber:
-                    shells, lives, blanks, chamber = reload_chamber(24, 3)
+                    shells, lives, blanks, chamber = reload_chamber(24, 6)
                 if not chamber:
                     continue
                 if ehp > 0 and chamber:
@@ -168,7 +168,7 @@ def habi_test_fight():
         if turn == "enemy":
 
             if not chamber:
-                shells, lives, blanks, chamber = reload_chamber(24, 3)
+                shells, lives, blanks, chamber = reload_chamber(24, 6)
             if not chamber:
                 continue
             current_shell = chamber.pop(0)
@@ -236,7 +236,7 @@ def habi_test_fight():
 
                 # Forced self-shot
                 if not chamber:
-                    shells, lives, blanks, chamber = reload_chamber(24, 3)
+                    shells, lives, blanks, chamber = reload_chamber(24, 6)
                 if not chamber:
                     continue
                 if hp > 0 and chamber:
